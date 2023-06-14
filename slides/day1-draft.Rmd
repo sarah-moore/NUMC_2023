@@ -1,31 +1,31 @@
 ---
-title: "Day 1: Introduction to Math Camp"
-author: "Sarah Moore and J. Seawright"
-date: "Math Camp 2022"
-output: beamer_presentation
-urlcolor: purple
-
-header-includes: 
-- \usepackage{soul}
-- \usepackage[T1]{fontenc}
-- \usepackage{amsmath}
-- \usepackage{listings}
-- \usepackage{graphicx}
-- \usepackage{tikz}
-- \usepackage{tkz-fct}   
-- \usepackage{comment}
-- \usepackage{filecontents}
-- \usepackage{xcolor,colortbl}
-- \setbeamertemplate{navigation symbols}{}
-- \usecolortheme{crane}
-- \RequirePackage{etex}
-- \def\firstcircle{(210:1cm) circle (1.5cm)}
-- \def\secondcircle{(330:1cm) circle (1.5cm)}
-
+title: "Foundations of Quantitative Social Science"
+subtitle: "Day 1 AM"
+author: "Sarah Moore"
+institute: "Northwestern University"
+date: "Math Camp 2023"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
 ---
+
+```{r xaringan-themer, include = F}
+library(xaringanthemer)
+style_solarized_light(header_font_google   = google_font("Roboto"),
+  text_font_google   = google_font("Work Sans", "300", "300i"),
+  code_font_google   = google_font("IBM Plex Mono")
+  )
+```
 
 # Day 1 Agenda 
 
+---
 
 # Who are we? 
 
@@ -35,14 +35,15 @@ Co-Instructors:
 
 - Professor of Political Science and Director of Graduate Studies 
 
-- j-seawright\@northwestern.edu 
+- j-seawright@northwestern.edu 
 
 ## Sarah Moore
 
 - PhD Candidate (ABD) in Political Science and M.S. Candidate in Statistics 
 
-- sarahmoore2022\@u.northwestern.edu
+- sarahmoore2022@u.northwestern.edu
 
+---
 # What is math camp? 
 
 - A primer to (re)introduce you to some topics that will be necessary to moving forward in the quantitative methods sequence in Political Science and Sociology. 
@@ -50,6 +51,8 @@ Co-Instructors:
 - Allow the instructors to assess the needs of the incoming cohort regarding instructional support. 
 
 - Also an opportunity to meet and network with your new grad school colleagues. 
+
+---
 
 # Now, tell us about you 
 
@@ -62,7 +65,7 @@ Let's get to know each other a bit more:
 - Discipline + Subfield and/or intended research area 
 
 - A hobby or interesting fact about yourself  
-
+---
 # What are we going to cover? 
 
 - Refresh knowledge of foundational mathematical concepts
@@ -77,6 +80,8 @@ Let's get to know each other a bit more:
 
 - Reflect on how well you understand and can apply the concepts addressed in math camp.  
 
+---
+
 # Expectations 
 
 - Come to every session, we will be on time 
@@ -87,13 +92,17 @@ Let's get to know each other a bit more:
 
 - Complete R exercises 
 
-# Broad Expectations as a Grad Student 
+---
+
+# Broad Expectations
 
 - Read what's assigned, and learn how to skim now. 
 
 - The people around you are your colleagues, not your competition. Our default here is to treat everyone with respect. 
 
-- Be the scholar *you* want to be, not the scholar you think everyone else wants you to be. 
+- Be the scholar *you* want to be, not the scholar you think everyone else wants you to be.
+
+---
 
 # Theory Construction 
 
@@ -104,6 +113,8 @@ Social scientists are tasked with developing and testing **theories** that expla
 A **theory** is a proposition or set of propositions that explain a certain phenomenon in the world. Theories can be either *causal* or *descriptive*, though more work in contemporary social science is now oriented toward causal explanation. 
 
 Typically, a theory specifies a number of **concepts** of interest and explains the relationship between them. The way social scientists define theoretical concepts depends on previous scientific work on that phenomenon and their manifestation in real life. 
+
+---
 
 # Theory Construction 
 
@@ -117,13 +128,17 @@ A **null hypothesis** is the corresponding observation we would expect if the th
 
 A hypothesis will usually specify the proposed nature of a relationship between two or more **variables**, which are the empirical stand-ins for theoretical concepts. These are the real world **things** that compose our theory. 
 
-# Variables and their Functional Roles 
+---
+
+# Variables
 
 Theories explain why and how one variable varies depending on the character or value of another variable. This means we have a particular nomenclature to refer to variables given their functional role. 
 
 - The **dependent variable** (Y) is the outcome of interest, whose value is expected to depend on some other variable. The dependent variable may also be referred to as the outcome or response variable.
 
 - The **independent variable** (X) is the theorized cause of the dependent variable, or at least the cause of Y's variation. The value of the independent variable is expected to be independent of variation in Y. 
+
+---
 
 # Operationalization 
 
@@ -133,6 +148,8 @@ For example, we might be abstractly interested in *socioeconomic inequality.* Bu
 
 Therefore, when we think of **operationalizing** socioeconomic inequality, we need to choose a fixed, systematic measure of this concept to help us identify instances of socioeconomic inequality. 
 
+---
+
 # Theory Construction, An Example 
 
 Let's say we have a theory that public approval of politicians is not grounded only in their present political careers. Instead, we conjecture that politician approval is also dependent on their social networks preceding their political careers. Specifically, we expect that politicians with previously public lives receive higher levels of public approval through their political term than those who did not have public lives prior. 
@@ -140,6 +157,8 @@ Let's say we have a theory that public approval of politicians is not grounded o
 >- What is a hypothesis that we can derive from this theory? 
 
 >- What variables constitute the hypothesis? 
+
+---
 
 # Theory Testing
 
@@ -151,6 +170,8 @@ To conduct hypothesis tests that help put our theory to the test, we need an emp
 
 - This class will focus specifically on quantitative methods based in probability and statistics. 
 
+---
+
 # From Theory to Empirics 
 
 - Each observation or occurrence of our variables of interest is a piece of *data.* 
@@ -161,15 +182,15 @@ To conduct hypothesis tests that help put our theory to the test, we need an emp
 
 - These intermediate steps are based in logic, set theory, algebra, calculus, etc. We will introduce or re-introduce all of these constitutive parts so that once we get to the coursework in 403 and beyond, you can always revisit this material to make sense of the foundations of more advanced methods. 
 
+---
+
 # Sets and Logical Possibilities  
 
 ## Sets 
 
 A collection of elements. 
-
+---
 # Types of numerical elements in a set
-
-\small 
 
 - Natural numbers, $\mathbb{N}$: positive whole numbers, including 0
   
@@ -190,12 +211,15 @@ A collection of elements.
 - Imaginary numbers, $\mathbb{I}$: a number times the imaginary number $i$, which has no meaningful value, $i=\sqrt{-1}$ 
 
 - Complex numbers, $\mathbb{C}$: a value consisting of both a real and imaginary number, often in the form $a+bi$ 
+---
 
 # Elements in a set
 
 You can have a set composed of other *things* too. Such as names of people, places, or other things. 
 
 Sometimes you will code these non-numerical values to have numerical representation, other times you will leave the names as is. These distinctions will become more clear moving forward and in your coding instruction. 
+
+---
 
 # Measurement
 
@@ -207,6 +231,7 @@ Sometimes you will code these non-numerical values to have numerical representat
 
 - Ratio (interval-ratio): equidistant from one value to the next, there is a meaningful zero
 
+---
 
 # Measurement: Examples
 
@@ -221,6 +246,7 @@ Here are some examples of each of these types of measurements:
 >- Ratio: Number of tax dollars spent per person in a municipality 
 
 >- What are some other examples of each of these types of measurements of variables? 
+---
 
 # Sets, Variables, and Sample Spaces
 
@@ -235,7 +261,7 @@ Here are some examples of each of these types of measurements:
   >- Sample space: set that contains all the values a variable can take
   
   >- Subsets: subgroups of a set or sample space
-
+---
 # Set Notation  
 
 Sets and set operations have notation conventions: 
@@ -256,6 +282,7 @@ Sets and set operations have notation conventions:
 
 - Subset $\subset, \subseteq$ (these function roughly like the less than/less than equal to, but for sets)
 
+---
 
 # Displaying Sets 
 
@@ -267,6 +294,7 @@ Sets and set operations have notation conventions:
   
   >- Read "Set A is a set of all x such that x is a real number less than 200." 
 
+---
 
 # Characterizing Sets 
 
@@ -277,6 +305,8 @@ Sets and set operations have notation conventions:
 >- Countable or Uncountable: elements can be counted or not (e.g $\{ 0,1\}$ is countable )
 
 >- Ordered and Unordered sets: ordered set has significance in order while in unordered, no significance in ranking
+
+---
 
 # Characteristics of Sets 
 
@@ -292,17 +322,18 @@ Sets and set operations have notation conventions:
 
 - Universal set (the universe: all elements)
 
+---
+
 # Sets and Set Operations 
 
 Now that we know a bit about what sets *are*, we can now visit what to *do* with sets.
 
-::: {.block}
+
 ## **Union**: $A \cup B$ 
 
 Joining two sets together, the equivalent of adding all of the elements of each set. 
 
 Here we highlight all of the elements in $A$ **OR** $B$. 
-:::
 
 \begin{center}
 \begin{tikzpicture}
@@ -319,15 +350,15 @@ Here we highlight all of the elements in $A$ **OR** $B$.
 \end{tikzpicture}
 \end{center}
 
+---
+
 # Sets and Set Operations 
 
-::: {.block}
 ## **Intersection**: $A \cap B$ 
 
 Finding the elements in sets or subsets that are shared, i.e. that intersect. 
 
 Here we highlight all of the elements in $A$ **AND** $B$. 
-::: 
 
 \begin{center}
 \begin{tikzpicture}
@@ -346,16 +377,15 @@ Here we highlight all of the elements in $A$ **AND** $B$.
 
 - Two or more sets are **disjoint** if their intersection is empty, i.e. $A \cap B = \emptyset$. What might the Venn diagram of disjoint sets look like? 
 
+---
 
 # Sets and Set Operations 
 
-::: {.block}
 ## **Difference**: A-B 
 
 The elements of one set less the elements of another. 
 
 Here we show the difference between sets A and B ($A-B$). 
-:::
 
 \begin{center}
 \begin{tikzpicture}
@@ -372,15 +402,15 @@ Here we show the difference between sets A and B ($A-B$).
 \end{tikzpicture}
 \end{center}
 
+---
+
 # Sets and Set Operations
 
-::: {.block}
 ## **Complement**: $A^C$
 
 The elements in the universal set $U$ not in the specified set. 
 
 For example, $A^C$ indicates all the elements *NOT* in $A$. 
-:::
 
 \begin{center}
 \begin{tikzpicture}
@@ -397,15 +427,15 @@ For example, $A^C$ indicates all the elements *NOT* in $A$.
 \end{tikzpicture}
 \end{center}
 
+---
+
 # Sets and Set Operations
 
-::: {.block}
 ## **Partition**
 
 A grouping of elements in a universal set such that each element belongs to at least one subset.
 
-\small Here all of the elements of the universal set $U$ belong to a subset, either $A$ or $B$. 
-:::
+Here all of the elements of the universal set $U$ belong to a subset, either $A$ or $B$. 
 
 \begin{center}
 \begin{tikzpicture}
@@ -415,14 +445,15 @@ A grouping of elements in a universal set such that each element belongs to at l
 \end{tikzpicture}
 \end{center}
 
+---
+
 # Sets and Set Operations
 
-::: {.block}
+
 ## **Cartesian Product**: $A \times B$
 
 Set of all the ordered pairs possible between the elements of $A$ and $B$. 
 
-:::
 
 $A$: $\{$trees, apples, rivers$\}$
 
@@ -440,16 +471,23 @@ chalk & (chalk, trees) & (chalk, apples) & (chalk, rivers) \\
 \hline 
 \end{tabular}
 
-# Sets: Review
+---
 
-\begin{itemize}
-\item Unions: OR, $\cup$
-\item Intersections: AND, $\cap$
-\item Ordered/Unordered
-\item Complements (not inside) c, written $A^c$, for example. 
-\item Subsets and proper subsets (contained within): $\subset, \subseteq$
-\item Cardinality (number of elements)
-\end{itemize}
+# Sets
+
+- Unions: OR, $\cup$
+
+- Intersections: AND, $\cap$
+
+- Ordered/Unordered
+
+- Complements (not inside) c, written $A^c$, for example. 
+
+- Subsets and proper subsets (contained within): $\subset, \subseteq$
+
+- Cardinality (number of elements)
+
+---
 
 # Logical and Relational Operators 
 
@@ -472,6 +510,8 @@ $!=$  & NOT EQUAL TO \\
 $\%in\%$& IN THE SET \\
 \end{tabular}
 \end{table}
+
+---
 
 # A note on operators 
 

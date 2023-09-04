@@ -3,7 +3,7 @@
   <head>
     <title>Calculus II: Integrals</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Sarah Moore" />
+    <meta name="author" content="Sarah Moore &amp; J. Seawright" />
     <script src="libs/header-attrs-2.21/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 ## Day 4 AM
 ]
 .author[
-### Sarah Moore
+### Sarah Moore &amp; J. Seawright
 ]
 .institute[
 ### Northwestern University
@@ -53,17 +53,11 @@ class: center, middle, inverse, title-slide
 ---
 # Motivating Example 
  
-- Let's say a new book store opens and based on the first 100 days of sales we can model daily book sales given the function `\(f(x)= 20 +ln(x)\)`, where `\(x\)` is the number of days since the bookstore opened. 
+- Let's say a new book store opens and based on the first 100 days of sales we can model daily book sales given the function `\(f(x)= ln(x) * 20\)`, where `\(x\)` is the number of days since the bookstore opened. 
 
 - As we know, solving for `\(x\)` will give us the amount of books sold on that particular day. 
 
-![]("images/book_sales.png"){width=40%}
-
-Ok, yes you can't sell 23.5 books over any of the days, but it's just a model for example's sake.
-
----
-
-
+&lt;img src="day4-draft_files/figure-html/unnamed-chunk-1-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Cumulative Book Sales? 
@@ -73,7 +67,7 @@ Ok, yes you can't sell 23.5 books over any of the days, but it's just a model fo
 - Or even more specifically, we want to know how many books were sold from Day 25 to Day 65. 
 
 
-![]("images/book_sales_interval.png"){width=50%}
+&lt;img src="day4-draft_files/figure-html/unnamed-chunk-2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Book Sales on the Interval?
@@ -82,7 +76,8 @@ Ok, yes you can't sell 23.5 books over any of the days, but it's just a model fo
 
 - We *could* solve for `\(x\)` for each point in the interval and then add these all up. To make our estimate more accurate, we would have to break up the intervals between each `\(x\)` and sum those together-- making the interval smaller and smaller to achieve higher precision.
 
-![]("images/book_sales_interval.png"){width=50%}
+&lt;img src="day4-draft_files/figure-html/unnamed-chunk-3-1.png" width="55%" style="display: block; margin: auto;" /&gt;
+
 ---
 # Alternative? 
 
@@ -164,17 +159,21 @@ Given this simple rule, let's practice with a couple of functions.
 
 Let's try to integrate the following: 
 
-- `\(\int 3x + 3 \hspace{0.2cm}dx\)` 
+- `\(\int 3x + 3 dx\)` 
 
-\uncover&lt;2-&gt;{\color{blue}\hspace{2cm} `\(F(x) = \frac{3}{2}x^2 + 3x +c\)`}
+&gt;- `\(F(x) = \frac{3}{2}x^2 + 3x +c\)`
 
-- `\(\int 16x^2 + 2x + 7 \hspace{.2cm} dx\)` 
+--
 
-\uncover&lt;3-&gt;{\color{blue}\hspace{2cm}$F(x)= \frac{16}{3}x^3 + x^2 + 7x + c$}
+- `\(\int 16x^2 + 2x + 7 dx\)` 
 
-- `\(\int \sqrt{x} + 13 \hspace{.2cm} dx\)`
+&gt;- `\(F(x)= \frac{16}{3}x^3 + x^2 + 7x + c\)`
 
-\uncover&lt;4-&gt;{\color{blue}\hspace{2cm} `\(F(x)= \frac{2}{3}x^{\frac{3}{2}} + 13x + c\)`}
+--
+
+- `\(\int \sqrt{x} + 13 dx\)`
+
+&gt;- `\(F(x)= \frac{2}{3}x^{\frac{3}{2}} + 13x + c\)`
 
 ---
 # Integration as a Linear Operator
@@ -193,11 +192,11 @@ This has a few [implications:](https://math.mit.edu/~jorloff/suppnotes/suppnotes
 
 - `\(\int^2_0 4(x+2) dx\)` 
 
-\uncover&lt;2-&gt;{$4 \int^2_0 (x+2) dx$} 
+`\(4 \int^2_0 (x+2) dx\)` 
 
-\uncover&lt;3-&gt;{$4 [\frac{1}{2}x^2 +2x |^2_0]$} 
+`\(4 [\frac{1}{2}x^2 +2x |^2_0]\)`
 
-\uncover&lt;4-&gt;{$4 [6-0] = 24$} 
+`\(4 [6-0] = 24\)` 
 ---
 # More on Integrals
 
@@ -223,26 +222,28 @@ $$ \int_c^d \int_a^b f(x,y) dxdy$$
 
 ---
 
-# Here's some more practice based on what we have learned so far
+# Practive 
 
 Solve for the following, be sure to pay attention whether the integral is definite or indefinite: 
-\small 
 
 1. `\(\int(x^3-x^2+2x)dx\)` 
+--
 
-\uncover&lt;2-&gt;{\color{blue} \hspace{2cm}$F(x)= \frac{x^4}{4}-\frac{x^3}{3}+x^2+c$}
+&gt;- `\(F(x)= \frac{x^4}{4}-\frac{x^3}{3}+x^2+c\)`
+
+--
 
 2. `\(\int^5_1 \frac{1}{x^3}dx\)` 
 
-\uncover&lt;3-&gt;{\color{blue} \hspace{2cm}$-\frac{1}{2x^2}|^5_1=0.48$}
+--
 
-3. `\(\int^5_1 x^3+ \frac{1}{x^3}dx\)` 
+&gt;- `\(-\frac{1}{2x^2}|^5_1=0.48\)`
 
-\uncover&lt;4-&gt;{\color{blue} \hspace{2cm}$\frac{1}{4}x^4|^5_1 + (-\frac{1}{2x^2})|^5_1= 156.48 \hspace{0.5cm} \text{or} \hspace{0.5cm} \frac{3912}{25}$}
+--
 
-4. `\(\int^{1}_0 e^x dx\)` **hint: the integral of `\(e^x\)` is the same as its derivative.**
+3. `\(\int^{1}_0 e^x dx\)` **hint: the integral of `\(e^x\)` is the same as its derivative.**
 
-\uncover&lt;5-&gt;{\color{blue} \hspace{2cm}$e^x|^1_0 = (e-1) \hspace{0.5cm} \text{or} \hspace{0.5cm} 1.7183$}
+&gt;- `\(e^x|^1_0 = (e-1) \hspace{0.5cm} \text{or} \hspace{0.5cm} 1.7183\)`
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

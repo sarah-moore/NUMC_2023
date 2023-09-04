@@ -20,6 +20,7 @@
 # History files
 .Rhistory
 .Rapp.history
+/slides
 
 # Session Data files
 .RData

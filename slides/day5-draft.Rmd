@@ -1,7 +1,7 @@
 ---
-title: "Probability I"
+title: "Matrix Algebra +"
 subtitle: "Day 5 AM"
-author: "Sarah Moore"
+author: "Sarah Moore & J. Seawright"
 institute: "Northwestern University"
 date: "Math Camp 2023"
 output:
@@ -15,383 +15,317 @@ output:
       
 ---
 
-# Day 5 Agenda 
-
-- What are probability and statistics? 
-
-- Concepts in probability  
-
-- Random variables-- discrete and continuous 
-
----
-
-# Probability Theory and the Social Sciences 
-
->- Probability theory is foundational to quantitative social science, as it is a means to derive the uncertainty of an outcome given a set of potential outcomes. 
-
->- Probability is the basis for statistical theory. Probability allows us to make statements about likelihood \textit{ex ante}, whereas statistics deciphers the underlying probability structure \textit{ex post facto}, that is after data collection. 
-
->- This course and most other statistics courses will cover \textbf{frequentist} statistics, which is based on objective probability. Other frameworks, like rational choice theory and Bayesian statistics, follow subjective probability. 
----
-
-# Probability Concepts 
-
-## Outcome 
-Any specified event that might occur. 
-
-Example: How many possible outcomes are there when rolling a 6-sided die? 
-
-$\rightarrow$ There are 6 possible outcomes.
-
-## Event 
-A specified outcome or set of outcomes. 
-
-Example: Define the number of outcomes of the event that a 6-sided die lands on any number $\leq 2$.
-
-$\rightarrow$ The defined event has 2 possible outcomes.
-
----
-# Probability Concepts 
-
-## Sample Space $\Omega$
-A list of ALL possible outcomes.
-
-What is the sample space of rolling a 6-sided die? 
-$\rightarrow \Omega=\{1, 2, 3, 4, 5, 6\}$
-
----
-# Annotating Probability 
-
-Probability and statistics will rely on the set notation we reviewed in Day 2. Revisit those slides in case you get stumped. 
-
----
-# Calculating Probability 
-
-It's likely you have learned the following formula to calculate simple probability: 
-$$Pr(\text{event})=\frac{\# \space \text{outcomes in event}}{\# \space \text{total outcomes in sample space}}$$
-For example, in the case of the 6-sided die, what is the simple probability that the die lands on a number $\leq 2$?
-
-First, we can define the sample space as before, where $S=\{1,2,3,4,5,6\}$. There are 6 total outcomes in the sample space.
-
-Then, we can determine the number of pertinent outcomes are in the event, here it is 2, such that $E={1,2}$.
-
-Therefore, we are interested in the $Pr(\text{Die}=1, 2)$. This is 2 outcomes out of 6, which simplifies to $\frac{1}{3}$.
-
----
-
-# BUT
-
-But things are rarely so simple $\ddot\frown$. 
-
-Independence, mutual exclusivity, and collective exhaustiveness are all important properties to ensure you are calculating probability correctly. 
-
-Determining whether an event meets these criteria will be tricky, and we will not cover this all today. 
-
-Here, we will cover some general procedures of probability and then get into these concepts. 
-
----
-
-# Some General SOP and Rules
-
-Suppose we are interested in event A. The probability of event is denoted $Pr(A)$. 
-
-- Probability will always lie in the range $[0,1]$, where 0 indicates that $A$ cannot happen (i.e., is improbable) and 1 indicates the event will deterministically happen.
-
-- Furthermore, the *law of total probability* states that the total probability of a sample space is 1. Therefore, when we sum together probabilities of all events in a sample space, the total probability equals 1.
-
----
-
-# Some General SOP and Rules
-
-- If $Pr(A)$ is notated alone, we can also assume that we are calculating the probability *independently* of any other event OR that we have already considered any other conditional event.
-
-- In the case that we are interested in the probability of a concurrence of events, that is one more events happening together but not necessarily conditionally, we can calculate the joint probability. There are different types of joint probability, based on if we want to know the intersection ($\cap$) or the union ($\cup$) of events.
-
-- We can also account for the conditional probability of $A$ given some other event $B$. This is annotated $Pr(A|B)$ and read as the probability of $A$ given or conditional on $B$. 
-
----
-# Independence 
-
-Two or more events are independent if the probability that any one of them may occur does not depend on the occurrence of another. 
-
-Example: The probability that it rains today is independent from the probability that it is anyone's birthday in this room.
-
-
-Formally, statistical independence .footnote[Slide developed from 3https://doi.org/10.1007/978-0-387-31439-6] between two events, $A$ and $B$, is given by: 
-
-$$P(A|B)=P(A) \space ; \space P(B|A)=P(B)$$
-This can be generalized to all events $A_1,...,A_n$ that are independent if and only if $P(\cap^n_{i=1}A_i)=\prod^n_{i=1}P(A_i)$.}
-
----
-# Mutual Exclusivity 
-
-Two events or more events are mutually exclusive if they cannot co-occur. You may also hear that two events are mutually exclusive if the events are disjoint. 
-
-Example: The event that you were born in a given country is mutually exclusive of the event that you were born in another country. You (in simplest terms) cannot have been born in two countries.
-
-Therefore, mutual exclusivity .footnote[https://www.intmath.com/counting-probability/9-mutually-exclusive-events.php] states that the probability of two events, $A$ and $B$ co-occurring is 0: 
-$$ P(A \cap B) = 0$$
----
-# Mutual Exclusivity 
-
-We can visualize mutual exclusivity as a Venn diagram, revisiting some of the ideas from our set theory: 
-
-\begin{figure}
-\centering
-\begin{tikzpicture} 
-\node[] at (-1.25,0) {Event A};
-\draw[color=blue] (-1.25,0) circle (1cm);
-\node[] at (1.25,0) {Event B};
-\draw[color=blue] (1.25,0) circle (1cm);
-\end{tikzpicture} 
-\end{figure}
-
-Note that there is no overlap between the two circles, indicating that there is no $\cap$.
-
----
-# Collectively Exhaustive
-
-All events cover the probability sample space, in other words, at least one of them is going to happen. .footnote[https://www.statisticshowto.com/collectively-exhaustive/] 
-
-Example: When rolling a 6-sided die, the events are collectively exhaustive as the probability that any of the events happens is 1. We know that a roll guarantees that the die will land on one of the numbers.
-
-Events are thus collectively exhaustive if the union of all possible event outcomes covers the sample space: 
-$$ A \cup B = S$$}
-
----
-# Joint Probability 
-
-Sometimes we want to know the probability of the concurrence of events. In the case that two concurrent events are independent, calculating the probability is simple. The joint probability of independent events is merely the product of the probabilities: 
-$$P(A \cap B) = P(A)P(B)$$ 
-
-Example: Let's say you are drawing 2 balls from 2 different urns. Each of the urns has 2 red balls, 2 white balls, and 4 black balls. Assuming that the draws from each urn are independent of one another, what is the probability that you choose a black ball from each of the urns?
-
-$$P(B_{\text{Urn 1}})= \frac{4}{8}; P(B_{\text{Urn 2}})= \frac{4}{8}$$
-$$P(B_{\text{Urn 1}} \cap B_{\text{Urn 2}})= P(B_{\text{Urn 1}}) \times P (B_{\text{Urn 2}}) = \frac{4}{8}\times\frac{4}{8}= {1\over 4}$$
----
-# Joint Probability, cont'd. 
-
-In other cases, we might want to know about the concurrence of events that are mutually exclusive and independent. This is the case that we want to know about Event A *or* Event B happening. The joint probability of mutually exclusive events is the sum of the probabilities: 
-
-$$P(A \cup B) = P(A)+P(B)$$ 
-
-Example: Let's say you want to calculate the probability that a randomly chosen adult in Chicago voted for Trump or Biden in the last election. Let's say that the probabilities are respectively P(Trump)= 0.35, P(Biden)=0.60. What is the probability that a randomly chosen person voted for Trump OR Biden?
-
-$$ P(\text{Trump})=0.35, P(\text{Biden})=0.60$$
-$$P(\text{Trump} \cup \text{Biden})= 0.35+0.60 = 0.95$$
-
-Why are these events mutually exclusive? Are they collectively exhaustive?
----
-# Joint Probability, cont'd. 
-
-For events that are independent but NOT mutually exclusive, we still want to take into account the union of the probabilities we need to somehow account for the overlap of the events.
-
-In this case, the joint probability is the sum of the probabilities minus their intersection: 
-$$P(A \cup B) = P(A)+P(B)-P(A \cap B) $$ 
-
-Returning to the example of the urns, let's say you are drawing 2 balls from 2 different urns. 
-
-Each of the urns has 2 red balls, 2 white balls, and 4 black balls. What is the probability that you draw a black ball from urn 1 OR urn 2?
-
-$$P(B_{\text{Urn 1}})= \frac{4}{8}; P(B_{\text{Urn 2}})= \frac{4}{8}$$
- $$P(B_{\text{Urn 1}} \cup B_{\text{Urn 2}})= P(B_{\text{Urn 1}}) + P (B_{\text{Urn 2}}) -  P(B_{\text{Urn 1}} \cap B_{\text{Urn 2}})= \frac{4}{8} + \frac{4}{8} - \frac{1}{4}= {3 \over 4}$$
-
----
-# Random Variables 
-
-The concept of **random variables** is one of the most important and fundamental aspects to modeling quantitative social science. 
-
-A random variable is any concept whose outcome can be modeled by some *rule* or *function*. The potential range of values of a given random variable and the values' associated probability structure is the **probability distribution.**
-
-Probability distributions can be modeled as equations. The type of distribution function associated with a given probability structure will depend on whether a random variable is **discrete** or **continuous**. More on this to come. 
-
-**What are some examples of random variables that we might encounter in the social sciences?**
----
-
-# Probability Distributions and Additional Terminology 
-
-Probability distributions and their associated random variables have a range of possible values where $Pr>0$, this range of possible values is known as the distributional *support*. 
-
-For example, in a Bernoulli distribution, often used for measuring the likelihood of success in a single trial, the support is $\{0,1\}$ where 0 is failure and 1 is success.\footnote{This is notated as $k \in \{0,1\}$.}
-
----
-# Discrete Random Variables \footnote{https://tinyurl.com/2p94ax59}
-
-Random variables (r.v.) take on different functional forms given the types of quantities or values that they represent. 
-
-*Discrete* r.v. model countable, distinct values.
-
-Examples of discrete r.v. include the number of children in a classroom, the number of crosswalks in a neighborhood, or the number of degrees that a person holds.
-
-The associated probability distribution of a discrete r.v. is the **probability mass function (p.m.f.)**.
-
-Discrete r.v. are graphically shown via **histograms**, which are bar chart representations of frequencies over a range of values.
-
----
-# Histograms 
-Let's say we surveyed members of the Political Science Dept. for the number of dogs each person has in their household. The following graph shows the frequency of each value given by the surveyed individuals. 
-
-![An Example of a Histogram](images/dogs.png){width=80%}
----
-# Probability Mass Functions (p.m.f.)
-
-A **probability mass function (p.m.f.)** is the way to functionally describe the probability associated with each potential value ($k$) of a discrete r.v. $X$. .footnote[Formally, $P(X=x_i)=p_i$]
-
-Remember that the probabilities are bounded as [0,1] and that all the total probability of all values in a sample space $\Omega$ sum to 1.
-
-We can think through an applied example, using the previous histogram's data.
-
----
-# p.m.f. Example 
-
-Recall that the graph was of the number of dogs in the care of NU PoliSci faculty and that a histogram shows the frequency of each observation in the data. We can also display this in a table: 
-
-\begin{table}
-\centering
-\caption{Number of Dogs in the Care of PoliSci Faculty}
-\begin{tabular}{|c|c|}
-\hline 
-No. of Dogs & Frequency\\ 
-\hline 
-0 & 4\\ 
-\hline 
-1 & 5\\ 
-\hline 
-2 & 5 \\ 
-\hline 
-3 & 3 \\ 
-\hline 
-4 & 1 \\ 
-\hline 
-\end{tabular}
-\end{table}
-
-Given what we know about the distribution, what is the probability that any faculty member cares for 1 dog? Suppose that this data accounts for all the professors in the department.
----
-# p.m.f. Example 
-
-We know a few things right off the bat from the histogram and the table. First, the range of possible values, i.e. the sample space, is 0 to 4. Second, we know that our $n$, or the total observations, is 18. From here it is pretty easy to construct a p.m.f. We merely calculate the probability for each observed value, such that: 
-
-
-\begin{equation*}
-p(x)=\begin{cases}
-    \frac{4}{18} & \text{if}\, k=0 \\
-    \frac{5}{18} & \text{if}\, k=1,2  \\
-    \frac{3}{18} & \text{if}\, k=3  \\
-    \frac{1}{18} & \text{if}\, k=4  \\
-    0 & \text{otherwise}
-    \end{cases}
-\end{equation*}
-
-What is the probability that any faculty member cares for 1 dog?
-
-Notice that we can include the probabilities of 1 and 2 together on the same line because they are equal, this does not mean that is the sum of those probabilities. 
-
-```{r, include=F, eval=F}
-
-dogs<-c(rep.int(4, 1), rep.int(3, 3), rep.int(2, 5), rep.int(1,5), rep.int(0,4))
-
-dogs<-data.frame(dogs)
-dogs$dogs<-as.factor(dogs$dogs)
-
-ggplot(dogs, aes(dogs))+
-  geom_histogram(stat='count')+
-  ylim(0,6)+
-  xlab("Number of Dogs")+
-  ylab("Frequency")+
-  ggtitle("Number of dogs in the care of NU Political Science Faculty")
-?geom_histogram
+```{r xaringan-themer, include = F}
+library(xaringanthemer)
+style_solarized_light(header_font_google   = google_font("Roboto"),
+  text_font_google   = google_font("Work Sans", "300", "300i"),
+  code_font_google   = google_font("IBM Plex Mono")
+  )
 ```
+# Introduction to Matrices
+
+A matrix is way of aggregating data by $n$ rows and $d$ columns. We can liken matrices to datasets in that rows data is organized into observations (rows) by columns (variables). 
 
 ---
-# Continuous Random Variables  \footnote{https://tinyurl.com/2p94ax59}
+# Introduction to Matrices
 
-**Continuous** r.v. can take on an uncountable, infinite range of values. 
+Matrices are described based on their $n \times d$ dimensions, that is the number of rows $\times$ columns in the matrix.
 
-Examples of continuous r.v. include annual rainfall in Chicago, gross domestic product, or the amount of oil imported to a country on a monthly basis. 
+Matrices may be characterized by their specific shape. For example, a matrix with an equal number of rows and columns is a square matrix. Otherwise, a matrix is rectangular. 
 
-The functional form of a continuous r.v. is given by the **probability density function** (p.d.f.).
+\begin{columns}
 
-Given that a continuous r.v. has an infinite range of possible values, it is not possible to calculate the probability at any specific value. Instead, we calculate the probability given a function of a **density curve**.
+\column{0.5\textwidth}
+Square Matrix: 
 
-A density curve is a smoothed line that displays a distribution function.
+\[
+\begin{bmatrix}
+a & b & c \\ 
+1 & 0 & 0 \\ 
+4 & 8 & 5 \\
+\end{bmatrix}
+\]
 
----
-# Density Curve 
+\column{0.5\textwidth}
+Rectangular Matrix: 
 
-For example, the Normal distribution is one of the most commonly known density curves. Let's say you have some data that you have standardized with mean 0 and standard deviation 1 (we will get to estimating central tendencies soon!), this is how the density curve would look! 
+\[
+\begin{bmatrix}
+a & b & c & d \\ 
+1 & 0 & 0 & 1 \\ 
+\end{bmatrix}
+\]
 
-![Example of a Normal Density Curve](images/normal_curve.png){width=70%}
-```{r, eval=F, include=F}
-set.seed(2)
-x<-rnorm(50)
-x<-data.frame(x)
-normal_curve<-ggplot(x, aes(x))+stat_function(fun=dnorm)+xlab("Value")+ylab("Density")+ggtitle("Normal Curve, mean=0, sd=1")
-```
-
----
-# Probability Density Function (p.d.f.) \footnote{https://online.stat.psu.edu/stat414/lesson/14/14.1}
-
-Given that any given value of a continuous r.v. $X$ has a zero probability,\footnote{Formally, this is $P(X=x)=0$.} we think differently about what a probability function models for a continuous r.v.
-
-In a **probability density function (p.d.f.)** of a continuous r.v. we define the probability over a range of potential values.
----
-# Probability Density Function (p.d.f.) 
-
-We can motivate understanding the p.d.f. with an example. Let's say that you have some data on $CO_2$ emissions by each country. The possibilities of any given country having a specific value of emissions, let's say 106.52 million tons, is 0. Instead, we can estimate the probability that any given country had less than 106 million tons in 2020.  
-
-So, what we really hope to estimate is $Pr(X<106 \text{million}\space t)$.
----
-# p.d.f. Example, cont'd. 
-
-The below curve is 2020 country-level emissions data. The dotted line shows our threshold value of 106 million tons.\footnote{The data has been ln transformed for readability, meaning all values are just taken as their natural log.}
-
-![Density: Log $CO_2$ Emissions by Country, 2020](images/emissions_curve.png){width=70%}
-
-```{r, eval=F, include=F}
-emissions<-read.csv("/Users/sarahmoore/Downloads/annual-co2-emissions-per-country.csv")
-emissions %>% filter(Year==2020) ->emissions
-emissions$log_transform<-log(emissions$Annual.CO2.emissions)
-ggplot(emissions, aes(log_transform))+
-  geom_density()+
-  geom_vline(xintercept=18.47895, linetype="dashed", color="red")
-  
-emissions$fill<-ifelse(emissions$log_transform<18.47895, 1, 0)
-?stat_density
-log(106000000)#18.47895
-```
----
-# p.d.f. Example, cont'd. 
-
-To find the probability that a given country's 2020 emissions for were less than 106 million tons, we then find the area under the curve to the left of our threshold value.
-
-We will leave the actual calculation for a later time, but just by looking at this curve, what do you think the probability is that a country's emissions were less than 106 million tons?
----
-# p.d.f. Example, cont'd. 
-
-![Density: Log $CO_2$ Emissions by Country, 2020](images/emissions_curve.png){width=65%}
-
-Remember that the law of total probability states that the probability over the entire sample space is equal to 1. This means that the entire area under our probability curve is 1.
-
-What percentage of the curve do you feel is accounted for up to the dotted line?
----
-# p.d.f. 
-
-While this example was motivated by a fairly easy range of values, others might be more tricky. 
-
-Instead, we might think about the probability of lying within a range of two values, such that we need to calculate $P(a<X<b)$.
-
-Here is the takeaway: \textbf{We can model probability and likelihoods via functions. Calculating probability at given values then becomes an issue of finding a function's location and behavior at that value.} This is a lot, and you won't get it all right now, THAT'S OK!
+\end{columns}
 
 ---
-# Discussion 
+# Indexing Data in Matrices 
 
-Why do we need to know the difference between discrete r.v. and continuous r.v.? 
+Like variables matrices are given names. Matrix names are typically capital letters like **$A, B, X, I, \Phi$**. Matrix elements are referenced by the matrix name and the element's row and column number. Generally, this is shown by $a_{i,j}$. 
 
-A lot of how social science models things is dependent on the types of variables modeled and how we measure them. 
+Suppose we have the following matrix. What are the dimensions of matrix $[B]$ below, and what value is $b_{23}$?
 
-For example, how we model the probability of a vote choice between two candidates (i.e. a discrete variable) is different than how we would model the variation in resource depletion per year (i.e. a continuous variable).
+\[
+\begin{bmatrix}
+3&2&8&11&14&19 \\
+9& 81 & 21& 31& 41& 1 \\
+13& 7 & 6 & 4 & 5 & 20
+\end{bmatrix}
+\]
 
-Understanding the underlying probability structure of different variable types will be an important foundation for developing more advanced modelling skills down the road.
+\pause Dimensions are 3 x 6; $b_{23}$ is 21. 
 
-Even still, understanding types of random variables and the appropriate tools to assess their behavior is important in rudimentary analyses-- such as t-tests.
+---
+# Elements of Matrices
+
+The elements along the diagonal often are important in matrices. We typically focus upon the diagonal that starts in the upper left and goes down to the lower right. 
+
+\[
+[A]=\begin{bmatrix}
+1 & 3 & 5 \\
+0 & 2 & 4 \\
+0 & 0 & 6
+\end{bmatrix} 
+[B]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 6
+\end{bmatrix}
+[C]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+3& 2 & 0 \\
+5& 4 & 6
+\end{bmatrix}
+[D]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0& 0 & 1
+\end{bmatrix}
+\]
+
+
+---
+
+# Types of Matrices
+
+We won't get into the details of all sorts of different matrices but it might be helpful to know that there are "special" matrices:
+
+\small 
+
+- Vector Matrices: only one row (row vector) or column (column vector)
+
+- Submatrix: subset of a matrix
+
+- Triangular Matrix: part of matrix is zeros -- all bottom triangle zeros is upper triangular, all upper triangle zeros is lower triangular.
+
+- Diagonal Matrix: only the diagonal is non-zero
+
+- Zero Matrix: everything is zeros
+
+- Identity Matrix ($I$): all zeros except on diagonal AND diagonal is only ones, this is the matrix version of multiplying by 1
+
+- Transpose ($[A]^T$): This is where you flip all the rows/columns. Meaning, if something was row 3, col 2, it will now be row 2, col 3. Done by `reflecting' over the main diagonal (so the diagonal stays the same)
+
+---
+
+# Identifying Matrices
+Define the kinds of matrices below: 
+
+\[
+[A]=\begin{bmatrix}
+1 & 3 & 5 \\
+0 & 2 & 4 \\
+0 & 0 & 6
+\end{bmatrix} 
+[B]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 6
+\end{bmatrix}
+[C]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+3& 2 & 0 \\
+5& 4 & 6
+\end{bmatrix}
+[D]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0& 0 & 1
+\end{bmatrix}
+\]
+
+\pause
+
+\textit{A: Upper triangular, B: Zero matrix, C: Lower triangular, D: Identity matrix; Fun fact! A and C are the transpose of each other}
+
+---
+
+# Adding matrices
+
+Adding and subtracting matrices requires that you have matrices that have the same dimensions as each other. You then add the elements together (or subtract, as applicable). The resulting matrix will have the same dimension as the originals. 
+
+\[
+ \begin{bmatrix}
+1 & 13 & 15 \\
+2 & 4 & 6 
+\end{bmatrix}
++
+\begin{bmatrix}
+2 & 4 & 6 \\
+1 & 3 & 5 
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 & 17 & 23 \\
+3 & 7 & 13 
+\end{bmatrix}
+\]
+
+\[
+ \begin{bmatrix}
+1 & 13 & 15 \\
+2 & 4 & 6 
+\end{bmatrix}
+-
+\begin{bmatrix}
+2 & 4 & 6 \\
+1 & 3 & 5 
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1 & 9 & 9 \\
+1 & 1 & 1 
+\end{bmatrix}
+\]
+
+---
+
+# Multiplying Matrices
+
+>- Just like in every other matrix operation, before you multiply matrices you must define their dimensions. To determine if you *can* multiply matrices, you need the number of **COLUMNS** in the matrix 1 to be the same as the number of **ROWS** in matrix 2. 
+
+>- You can't swap matrix positions like in regular multiplying. A$\times$B is not the same as B$\times$A. 
+
+>- Let's think about what you *should* end up with. You will end up with a matrix equal to the number of ROWS in the FIRST matrix and the number of COLUMNS in the SECOND matrix. For example, $A_{2\times3}\times B_{3\times3}$ will return a matrix $C_{2\times3}$
+
+>- Now the math gets a bit weird. You go ACROSS the first row of the matrix and multiply it DOWN the first column of the second matrix. Repeat this across each row, column pair.  
+
+---
+
+# Matrix Multiplication
+
+If you have a matrix setup like this: $A_{rxs} \times B_{sxt}$ then you will get a matrix that is $C_{r \times t}$.
+---
+
+# Matrix Multiplication Example 
+
+\[
+[A]=\begin{bmatrix}
+7 & 8  
+\end{bmatrix} 
+[B]=
+\begin{bmatrix}
+2 & 4 & 6 \\
+1 & 3 & 5 \\
+\end{bmatrix}
+\]
+ 
+
+Let's multiply! You take the row of the first matrix, multiply it by the COLUMN (hence the need to match) of the second matrix, ADD the sum of these products, and that goes into the first cell of the `final' matrix. Then you do the same thing for the next column. 
+\pause
+So, here, it would be: 
+\[
+[C]=\begin{bmatrix}
+7*2+8*1  & 7*4 + 8*3 & 7*6+8*5
+\end{bmatrix}
+\] 
+Note this is a row vector: $[C]=\begin{bmatrix}22 & 52 & 82\end{bmatrix}$
+---
+# Multiplying Matrices
+If you have multiple rows in your initial matrix, you just do the same process over again, following the same procedure for each row. Your final matrix will have dimensions determined in the same way. For example, if you have a 2 x 3 and a 3 x 3, you'll have a 2 x 3 as your resulting matrix. \pause
+
+\[
+[A]=\begin{bmatrix}
+7 & 8  \\
+1 & 2
+\end{bmatrix} 
+[B]=
+\begin{bmatrix}
+2 & 4 & 6 \\
+1 & 3 & 5 \\
+\end{bmatrix}
+\]
+
+\pause
+\[
+[C]=\begin{bmatrix}
+7*2+8*1  & 7*4 + 8*3 & 7*6+8*5 \\
+1*2+2*1 & 1*4 + 2*3 & 1*6+2*5
+\end{bmatrix}
+=\begin{bmatrix}
+22 & 52 & 82 \\
+4 & 10 & 16
+\end{bmatrix}
+\] 
+---
+# Multiplying Matrices: Practice
+\[
+[A]=
+\begin{bmatrix}
+1 & 3 & 4 \\
+2 & 2 & 8 \\
+\end{bmatrix}
+[B]=
+\begin{bmatrix}
+1 & 3 & 5 \\
+0 & 2 & 4 \\
+0 & 0 & 6
+\end{bmatrix} 
+[C]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+3& 2 & 0 \\
+5& 4 & 6 \\
+1 & 1 & 1
+\end{bmatrix}
+[D]=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0& 0 & 1
+\end{bmatrix}
+\]
+
+Try the following: 
+\begin{itemize}
+\item \textbf{A x B}
+\item \textbf{B x A}
+\item \textbf{A x C}
+\item \textbf{B x D}
+\end{itemize}
+---
+# Answers 
+\begin{itemize}
+\item \textbf{A x B} $\begin{bmatrix} 1 & 9 & 41 \\ 2 & 10& 46\end{bmatrix}$
+\item \textbf{B x A} Not possible: 3 x 3 and 2 x 3 (middle numbers must match)
+\item \textbf{A x C} Not possible: 2 x 3 and 4 x 3 (middle numbers must match)
+\item \textbf{B x D} B (D is the identity matrix so you always get back whatever you multiplied it by)
+\end{itemize}
+---
+# Matrices: A Rundown 
+
+- Dimensions matter. Different operations place different restrictions on dimensionality. 
+
+- Multiplying matrices does not happen how you would think. Take a minute to think through what matrix multiplication requires. 
+
+- Different types of matrices (especially the transpose and the identity matrices) will become more relevant later on. Remember these! 
+
+- Dividing matrices is even more weird. That's what calculators are for.... 
+
+---

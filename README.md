@@ -16,7 +16,7 @@ In this repository there is a page for each day of work, resources both related 
 | 6   |               **Probability I**                |  **Illustrating Concepts in R**      |                   |
 | 7   |              **Probability II**                |           **Applied Data Project**   | Problem Set 3 Due |
 | 8   |             **Moving from Probability to Stats** |                                    |                   |
-| 9   |          **Review + Survey of Perspectives in Quant. Social Science **    |                                    | Problem Set 4 Due |
+| 9   |          **Review + Survey of Perspectives in Quant. Social Science**    |            | Problem Set 4 Due |
 
 [Supplementary Material](supplementary_material/README.md)
 

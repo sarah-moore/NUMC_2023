@@ -18,6 +18,8 @@ In this repository there is a page for each day of work, resources both related 
 | 8   |             **Moving from Probability to Stats** |                                    |                   | |
 | 9   |          **Review + Survey of Perspectives in Quant. Social Science**    |            | Problem Set 4 Due | |
 
+[PM Lab Activities](PM_Slides/code)
+
 [Supplementary Material](supplementary_material/README.md)
 
 [Grad School Resources](resources/README.md)

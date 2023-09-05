@@ -8,7 +8,7 @@ In this repository there is a page for each day of work, resources both related 
 
 | Day |                   AM content                   |              PM Content              |   Problem Sets    | Readings  |
 |-----|:----------------------------------------------:|:------------------------------------:|:-----------------:|:-----------------:|
-| 1   | [**Foundations of Quantitative Social Science**](AM Slides/day1_AM.pdf) | **Intro to Base R + Other Software** |                   | Siegel & Moore, [ch. 2](supplementary_material/mooresiegel_algebra.pdf) |
+| 1   | [Foundations of Quantitative Social Science](/AM_Slides/day1_AM.pdf) | **Intro to Base R + Other Software** |                   | Siegel & Moore, [ch. 2](supplementary_material/mooresiegel_algebra.pdf) |
 | 2   |          **Algebra and Pre-Calculus**          |            `tidyverse` I             |                   | |
 | 3   |          **Calculus I: Derivatives**           |            `tidyverse` II            | Problem Set 1 Due | |
 | 4   |           **Calculus II: Integrals**           |  **Tidy Data and Version Control**   |                   | |

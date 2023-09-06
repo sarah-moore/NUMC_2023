@@ -1,0 +1,405 @@
+---
+title: "Tidyverse I"
+output: html_document
+date: "2023-09-06"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that
+includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to
+prevent printing of the R code that generated the plot. There are many
+more options you can play around with, such as deciding whether you want
+to show the output, hiding errors/warnings, etc.
+
+If you want to Knit to pdf, I recommend you install `tinytex` package
+first.
+
+## Reading in Data
+
+If you do not have `tidyverse` installed yet, run this line in the
+console: `install.packages("tidyverse")` Now, let's load the library:
+
+```{r}
+library(tidyverse)
+```
+
+We will be using a dataset that has some socioeconomic variables for all
+the neighborhoods in Chicago. The data is called "Census
+Data_selected_2008-2012.csv". Pay attention to where you downloaded it!
+Make sure it is in the same folder as this RMD file. It will make things
+much easier.
+
+Because it is a csv file, we will use the command `read_csv`.
+
+```{r}
+chicago <- read_csv("Census Data_selected_2008-2012.csv")
+```
+
+## Exploring data
+
+Once you have uploaded a dataset, it is important to first become
+familiarized with it.
+
+Some useful commands: `glimpse`, `names`, `head`, `View`
+
+These are the type of commands that you will typically want to run
+directly in the console. They are mostly for our own information and not
+something that we need to run for subsequent codes to work.
+
+What do we learn from the `glimpse` command?
+
+The `names` command is very useful too because we will often not
+remember the exact names of the variables we are working with.
+
+## Renaming
+
+You may have noticed that the variables names are quite messy. There are
+useful packages, like `janitor`, that clean up names real nice, but we
+will use the `rename` command for now.
+
+-   syntax: `rename(newvariable = oldvariable)`
+
+Let's rename COMMUNITY.AREA.NAME to 'neighborhood'
+
+```{r}
+chicago %>% rename(neighborhood = COMMUNITY.AREA.NAME)
+```
+
+We can check whether this worked by using `names(chicago)`.
+
+Our code above just outputs a dataframe, but it's not saved anywhere.
+Our original object hasn't changed! We need to overwrite it:
+
+```{r}
+
+```
+
+### Rename Practice
+
+Rename the following variables:
+
+1)  PERCENT.HOUSEHOLDS.BELOW.POVERTY into "poverty"
+
+2)  PERCENT.AGED.25+.WITHOUT.HIGH.SCHOOL.DIPLOMA into "diploma".
+
+3)  COMMUNITY.AREA.NAME into "neighborhood".
+
+```{r}
+
+
+```
+
+## Select
+
+Sometimes you will be working with large datasets that have hundreds of
+variables. But what if you want to work with only some of these
+variables?
+
+We can create a dataset that has only the variables we want by using the
+`select` function
+
+-   `syntax: data %>% select(variablename)`
+
+Let's create a new dataset that only has the variables we renamed above:
+
+```{r}
+small_chicago <- chicago %>% 
+  select(poverty, diploma, neighborhood)
+```
+
+There are many options for selecting:
+
+-   select by name:
+    -   `select(poverty, diploma)`
+-   select by position:
+    -   `select(c(1, 3, 10))`
+-   select by range:
+    -   `select(neighborhood:poverty)` or `select(1:3)`
+-   drop variables with `-`
+    -   `select(-diploma)`
+-   "select helpers" that make subsetting variables very easy
+    -   `contains()`, `starts_with()`, `ends_with()`
+
+### Select Practice
+
+Create a data set with all the original variables except "community area
+number":
+
+```{r}
+
+```
+
+## Filter
+
+Recall that with 'select' we picked out variables. With 'filter', we can
+pick out observations that comply with a given condition. We often do
+this to create subsets of the dataset.
+
+syntax: `data %>% filter(variable CONDITION)`
+
+Helpful operators:
+
+| Operator  | Description           |
+|-----------|-----------------------|
+| \<        | less than             |
+| \<=       | less than or equal to |
+| ==        | exactly equal to      |
+| !=        | not equal to          |
+| !x        | Not x                 |
+| x & y     | x AND y               |
+| x \|y     | x OR y                |
+| isTRUE(x) | test if X is TRUE     |
+
+Let's create a subset of the data only with neighborhoods were poverty
+is about 20%
+
+```{r}
+pov20 <- chicago %>% filter(poverty > 20)
+```
+
+Let's add more multiple conditions:
+
+```{r eval=FALSE}
+
+
+```
+
+### Filter Practice
+
+1)  Create a new dataset that only has North Side neighborhoods and
+    where per capita income is above \$40,000.
+
+2)  How many neighborhoods are left?
+
+```{r}
+
+```
+
+## Slice
+
+This command allows us to filter observations based on their *position*.
+It can come in handy to visualize results or cases. For instance, cases
+at the top, bottom, etc. But note that, if anything changes in your
+dataset (adding/deleting observations, re-ordering), the position of the
+observations will change too.
+
+Say I want to look only at the top 5 rows:
+
+```{r}
+chicago %>% slice(1:5)
+```
+
+But slice has many other options that can be useful for other purposes,
+like taking a sample of your data or getting observations that have max
+or min values in a variable.
+
+-   slice_head(n=)
+-   slice_tail(prop=0.2)
+-   slice_min/slice_max(variable, n=)
+-   slice_sample(prop=0.5)
+
+### Slice Practice
+
+Create a dataset that has the 10 neighborhoods with the highest levels
+of crowded housing. Hint: use the `names` command to see which variable
+corresponds to crowded housing.
+
+```{r}
+
+```
+
+## Arrange
+
+Arranges can help us arrange observations in ascending or descending
+order. It can be very useful for viewing outputs of other commands.
+
+-   syntax: data %\>% arrange(name of variable)
+-   syntax: data %\>% arrange(desc(name of variable))
+
+If I want to order my dataset according to % that have a diploma:
+
+```{r}
+chicago <- chicago %>% arrange(diploma)
+```
+
+## Mutate
+
+Often we will have to transform variables into new ones or create new
+variables. This is where mutate comes in.
+
+-   syntax: data %\>% mutate(new variable name = operation)
+
+The new variable can be something as simple as assigning everyone a 1:
+
+```{r}
+chicago %>% mutate(newvar = 1)
+```
+
+But that doesn't seem very useful!
+
+We can create new variables based on transformations of existing ones.
+For instance, let's convert the poverty variable into proportions:
+
+```{r}
+
+```
+
+### Mutate Practice
+
+Imagine that you are creating a simple additive index of 3 indicators:
+per capita income, percent of housing crowded, and percent without
+diploma.
+
+Create a new variable with the sum of these values and divide it by 3.
+
+```{r}
+
+```
+
+## Conditional Mutate
+
+The best of mutate comes out when we combine it with conditional
+arguments. We do this when want the new variable to have one value in
+some cases, but another value otherwise. If we only have two conditions,
+you can use `ifelse`. If more than two, `case_when`. Note tha both can
+be very useful to recode NAs!
+
+Say we want to create a new variable that categorizes neighborhoods
+according to the level of poverty - High or Low - with a threshold of
+30%.
+
+```{r}
+
+```
+
+The line reads:
+
+-   mutate(pov_high...) = create a new variable called "pov_high"
+-   ifelse(poverty \>30, "High"...) = if poverty (the original variable)
+    is more than than 30, assign it a value of "high" in the new
+    variable pov_high
+-   ifelse(...,"Low") = when it is not less than 30, assing it a value
+    of "low" in the new variable pov_high
+
+When we have more than 2 categories, we can use `case_when`.
+
+-   syntax:
+    `mutate(newvar = case_when(condition1 ~ value1, condition2 ~ value2))`
+
+If we just repeat the categorization above using case_when, it looks
+like this:
+
+```{r}
+chicago %>% mutate(pov_high = case_when(
+  poverty >= 30 ~ "High",
+  poverty <30 ~ "Low"
+))
+```
+
+But let's say we want to add another category:
+
+```{r}
+
+
+
+```
+
+### Conditional Mutate Practice
+
+Create a new variable called "region" that groups neighborhoods into
+three categories:
+
+1.  North + Northwest = "North"
+2.  West + Southwest = "West"
+3.  South + Far South = "South"
+
+```{r}
+
+
+```
+
+## Summarize
+
+This command is useful to get descriptive statistics, like the mean,
+median, etc.
+
+-   syntax: `summarize(name = function(variable))`
+
+Say we want the average poverty level across the dataset:
+
+```{r}
+chicago %>% 
+  summarize(avg_pov = mean(poverty))
+```
+
+There are many options: - Center: mean(), median() - Spread: sd(),
+IQR(), mad() - Range: min(), max(), - Position: first(), last(),
+nth(), - Count: n(), n_distinct() - Logical: any(), all()
+
+We can add many descriptive statistics:
+
+Let's add other descriptive statistics:
+
+```{r}
+
+
+```
+
+## Count
+
+Count is a nice command that gives you a quick frequency table.
+
+-   syntax: count(name of variable)
+
+If we want to see how many neighborhoods are in each Zone:
+
+```{r}
+
+```
+
+## Grouping
+
+Many times you'll want to analyze data across groups (regions, gender,
+age group, political party, etc.). We can use the `group_by()` function
+for this. Another great example of the use of pipes!
+
+-   syntax: `data %>% group_by(variable) %>%`
+
+Let's get the mean poverty rate per zone:
+
+```{r}
+chicago %>%
+  group_by(ZONE) %>%
+  summarize(avg_pov = mean(poverty))
+```
+
+### Grouping Practice
+
+What is the zone with the highest average per capita income?
+
+Hint: use `arrange` after summarizing to view the output in ascending
+order
+
+```{r}
+
+
+```

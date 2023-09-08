@@ -10,13 +10,13 @@ In this repository there is a page for each day of work, resources both related 
 |------------|:-------------------:|:-------------:|:----------:|:----------:|
 | 1   | [Foundations of Quantitative Social Science](/AM_Slides/day1_AM.pdf) | [Intro to Base R + Other Software](/PM_Slides/day1_pm.pdf) |                   | Siegel & Moore, ch. 2 |
 | 2   |                     [Algebra and Pre-Calculus](/AM_Slides/day2_AM.pdf)| [`tidyverse` I](/PM_Slides/day2and3_pm.pdf)  |  |  Siegel & Moore, ch. 3, ch.4 |
-| 3   |                     [Calculus I: Derivatives](/AM_Slides/day3_AM.pdf)|[`tidyverse` II](/PM_Slides/day2and3_pm.pdf) | Problem Set 1 Due | Siegel & Moore, ch. 5 |
+| 3   |                     [Calculus I: Derivatives](/AM_Slides/day3_AM.pdf)|[`tidyverse` II](/PM_Slides/day2and3_pm.pdf) |  | Siegel & Moore, ch. 5 |
 | 4   |                      **Calculus II: Integrals**                      |             **Tidy Data and Version Control**              |                   |                                                                         |
-| 5   |                     **Matrix + Linear Algebra**                      |                  **Exploratory Data Viz**                  | Problem Set 2 Due |                                                                         |
+| 5   |                     **Matrix + Linear Algebra**                      |                  **Exploratory Data Viz**                  | |                                                                         |
 | 6   |                          **Probability I**                           |               **Illustrating Concepts in R**               |                   |                                                                         |
-| 7   |                          **Probability II**                          |                  **Applied Data Project**                  | Problem Set 3 Due |                                                                         |
+| 7   |                          **Probability II**                          |                  **Applied Data Project**                  |  |                                                                         |
 | 8   |                 **Moving from Probability to Stats**                 |                                                            |                   |                                                                         |
-| 9   |     **Review + Survey of Perspectives in Quant. Social Science**     |                                                            | Problem Set 4 Due |                                                                         |
+| 9   |     **Review + Survey of Perspectives in Quant. Social Science**     |                                                            |  |                                                                         |
 
 [PM Lab Activities](PM_Slides/)
 

@@ -8,10 +8,10 @@ In this repository there is a page for each day of work, resources both related 
 
 | Day |                              AM content                              |                         PM Content                         |   Problem Sets    |                                Readings                                 |
 |------------|:-------------------:|:-------------:|:----------:|:----------:|
-| 1   | [Foundations of Quantitative Social Science](/AM_Slides/day1_AM.pdf) | [Intro to Base R + Other Software](/PM_Slides/day1_pm.pdf) |                   | Siegel & Moore, ch. 2 |
-| 2   |                     [Algebra and Pre-Calculus](/AM_Slides/day2_AM.pdf)| [`tidyverse` I](/PM_Slides/day2and3_pm.pdf)  |  |  Siegel & Moore, ch. 3, ch.4 |
-| 3   |                     [Calculus I: Derivatives](/AM_Slides/day3_AM.pdf)|[`tidyverse` II](/PM_Slides/day2and3_pm.pdf) |  | Siegel & Moore, ch. 5 |
-| 4   |                      [Calculus II: Integrals](/AM_Slides/day4_AM.pdf) |  Tidyverse Recap | [Problem Set 1](/problem_sets/PSET1_MC2023.pdf)| Siegel & Moore, ch. 7 |
+| 1   | [Foundations of Quantitative Social Science](/AM_Slides/day1_AM.pdf) | [Intro to Base R + Other Software](/PM_Slides/day1_pm.pdf) |                   | Moore & Siegel, ch. 2 |
+| 2   |                     [Algebra and Pre-Calculus](/AM_Slides/day2_AM.pdf)| [`tidyverse` I](/PM_Slides/day2and3_pm.pdf)  |  |  Moore & Siegel, ch. 3, ch.4 |
+| 3   |                     [Calculus I: Derivatives](/AM_Slides/day3_AM.pdf)|[`tidyverse` II](/PM_Slides/day2and3_pm.pdf) |  | Moore & Siegel, ch. 5 |
+| 4   |                      [Calculus II: Integrals](/AM_Slides/day4_AM.pdf) |  Tidyverse Recap | [Problem Set 1](/problem_sets/PSET1_MC2023.pdf)| Moore & Siegel, ch. 7 |
 | 5   |                     **Matrix + Linear Algebra**                      |                  **Exploratory Data Viz**                  | |                                                                         |
 | 6   |                          **Probability I**                           |               **Illustrating Concepts in R**               |                   |                                                                         |
 | 7   |                          **Probability II**                          |                  **Applied Data Project**                  |  |                                                                         |

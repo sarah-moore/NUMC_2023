@@ -1,0 +1,297 @@
+---
+title: "Graphs in R: ggplot"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# The Basic Structure of ggplot
+
+ggplot is a package within tidyverse, meaning that you need to have tidyverse loaded (or, alternatively simply load `library(ggplot)`). It works by combining several functions using the `+` operator. This creates layers in an additive fashion.
+
+Each function does something specific: provide a dataset, create a geometric object, add labels, etc.
+
+syntax: `ggplot(name of dataset), aes (x= name variable x, y= name variable y, ...) + geom_something()`
+
+-   aes(): *what* you want to plot (variables) and what you want to *see* (color, fill, shape, linetype, and size. aes stands for 'aesthetics').
+
+-   geom_something: *how* you want to plot it. Geometric objects are the actual marks we put on a plot. You need at least one but can have as many as you want! Common examples:
+
+    -   geom_point: points for scatter plots, dot plots, etc.
+    -   geom_line: lines for time series, trend lines, etc.
+    -   geom_boxplot: boxplots
+
+-   extras: labels, themes, other adjustments
+
+For this demonstration, we will usie the `gapminder` database. We need to install it first:
+In your console, type: install.packages("gapminder"). Then, we are ready to load the library (and the tidyverse library). 
+
+```{r}
+library(gapminder)
+library(tidyverse)
+
+gapminder <- gapminder
+```
+
+Let's explore the dataset first with the `glimpse` command and the `head` command. What type of data is this? 
+
+
+# Graphing Single Variables
+
+## Categorical variables: Bar Chart
+
+Let's get a basic graph of the number of observations per continent:
+
+```{r}
+gapminder %>% 
+ggplot(aes(x = continent)) + 
+  geom_bar() 
+```
+
+Now let's add some color by continent.
+
+```{r}
+
+
+
+```
+
+And now let's add a title
+
+```{r}
+
+
+
+```
+
+## Continuous variables: Histogram
+
+```{r}
+gapminder %>% 
+  ggplot(aes(x = lifeExp)) +
+  geom_histogram(bins = 20, color = "white") 
+```
+
+Practice:
+
+Try tweaking the "bins" and "color" argument. What does this do?
+
+Now, add a title and try figuring out how to add a label to the x and y axis. *Hint: type ?labs on the console and look at the examples. Alternatively, look it up on Google!*
+
+```{r}
+
+```
+
+## Histogram Alternative: Density Plot
+
+An alternative to the histogram is called the density plot.
+
+```{r}
+gapminder %>% 
+  ggplot(aes(x = lifeExp)) +
+  geom_density()
+
+```
+
+Practice:
+
+Try differentiating the density curves by continent. *(Hint: use the 'fill' argument inside the aes)*
+
+```{r}
+
+```
+
+Notice how this is not optimal because the color of the curves is too opaque and by overlapping we are losing some visual information. We can fix this with the `alpha` option:
+
+```{r}
+
+```
+
+
+# Covariation
+
+Up to now we've seen how to plot a single variable. What about plotting two variables?
+
+## Categorical X, Categorical Y: stacked bar
+
+Because our dataset only has one categorical variable, we will create a new variable first. We will categorize countries based on their level of gdp (high or low). Then we will use that newly created variable to see how many observations in each region have high or low levels of gdp. 
+
+```{r}
+gapminder %>% 
+  mutate(level = ifelse(gdpPercap < 3550, "Low", "High")) %>% 
+  ggplot(aes(fill = level,  
+             x = continent)) + 
+    geom_bar()
+```
+
+There are many more options we can play with, such as converting this into proportions, having the bars side-by-side instead of stacked, etc. 
+
+## Categorical X, Continuous Y: boxplots
+
+Also known as dot and whisker plot. This is particularly useful when you want to show how a continuous variables is distributed across different categories/groups.
+
+Notice that, in the aes(), we now have an x and a y variable specified.
+
+```{r}
+gapminder %>%
+  ggplot(aes(x = continent, 
+             y = lifeExp)) + 
+  geom_boxplot()
+
+```
+What if we want to make the **outline** of boxes light blue? Where should we put this argument? 
+
+```{r}
+
+
+```
+
+## Continuous X and Y: Scatterplot
+
+When we have two continuous variables, often a good option is to draw a scatterplot.
+
+```{r}
+gapminder %>%
+  ggplot(aes(x = gdpPercap, 
+             y = lifeExp)) + 
+  geom_point() + 
+  labs(x ="GDP Per Capita", 
+       y = "Life Expectancy")
+```
+
+Practice:
+
+What would you do if you only wanted to plot this for the year 2007? *(Hint: think back to the 'filter' command)*
+
+```{r}
+
+```
+
+There are many options to modify the points in the graph. We could change their shape, color, size, etc. Let's change the type of symbol to be a triangle instead of a circle and have them be pink: 
+
+```{r}
+
+```
+
+
+What is happening here? 
+
+```{r}
+gapminder %>%
+  ggplot(aes(x = gdpPercap, 
+             y = lifeExp)) + 
+  geom_point(aes(color = continent)) + 
+  labs(x ="GDP Per Capita", 
+       y = "Life Expectancy")
+```
+
+## Time series
+
+Graphing data over time is a bit more complicated and requires some use of dplyr commands first. Notice how we are first calculating the median of life expectancy for each country-year and then we are plotting that: 
+
+```{r}
+gapminder %>%
+  group_by(continent, year) %>%
+  summarise(lifeExp_median = median(lifeExp)) %>%
+  ggplot(aes(x = year, y = lifeExp_median,
+             color = continent)) +
+  geom_line(size = 1) +
+  labs(x = "Year",
+       y = "Life Expectancy")
+
+```
+
+We can also modify the type of line, the size of the line, etc. 
+
+# Other adjustments
+
+## Themes
+
+Ggplot comes with pre-installed themes for your graphs. Simply add `theme_` as an extra layer of the graph and check out the options.
+
+```{r}
+
+
+```
+
+But there are external packages that have many other themes. If you want to explore.
+
+Check out [ggthemr](https://github.com/Mikata-Project/ggthemr) and [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) and try it out on the graph above. (Remember you will need to install and load these packages first).
+
+## Facetting
+
+Often we will want to show the same graph split up for different groups. This is what `facet_wrap` or `facet_grid` are for.
+
+```{r}
+gapminder %>%
+  filter(year > 2000) %>% 
+  ggplot(aes(x = gdpPercap, 
+             y = lifeExp)) + 
+  geom_point() + 
+facet_wrap(~continent)
+```
+
+Among the adjustments we can make: changing the number of rows and columns with the `ncol` and `nrow` commands within `facet_wrap`
+
+
+## Combining
+
+Other times we have different graphs that we would like to combine together. One of the best tools for this is from an external package called 'cowplot'. Install this package from your console.
+
+Then, it is simply a matter of creating an object with your chosen graphs, as below
+
+```{r}
+library(cowplot)
+
+plot1 <- gapminder %>%
+  group_by(continent, year) %>%
+  summarise(lifeExp_med = median(lifeExp)) %>%
+  ggplot(aes(x = year, y = lifeExp_med,
+             color = continent)) +
+  geom_line(size = 1) +
+  labs(x = "Year",
+       y = "Life Expectancy")
+
+plot2 <- gapminder %>%
+  filter(year > 2000) %>%
+  ggplot(aes(x = gdpPercap, 
+             y = lifeExp)) + 
+  geom_point(alpha = 1) + 
+  labs(x ="GDP Per Capita", 
+       y = "Life Expectancy")
+
+plot3 <- gapminder %>% 
+  ggplot(aes(y = lifeExp)) +
+  geom_boxplot(fill = "deepskyblue2") +
+  labs(y = "Life expectancy", x="Worldwide") +
+  xlim(c(-2,2)) +
+  theme(axis.text.x = element_blank())
+
+
+```
+
+And then combining them together with the cowplot command:
+
+```{r}
+plot_grid(plot1, plot2, plot3, ncol=2, nrow=2)
+```
+
+Play around with the ncol and nrow arguments to see what that does.
+
+## Ugy Graph 
+
+Let's take the basic scatterplot we drew above and make it VERY UGLY. Change as much as you want to make the graph as illegible as possible. You can play around with colors, shapes, sizes, etc. You can explore how to change axis limits or other things we haven't covered. The sky is the limit! 
+
+```{r}
+gapminder %>%
+  ggplot(aes(x = gdpPercap, 
+             y = lifeExp))  + 
+  geom_point() +
+  labs(x ="GDP Per Capita", 
+       y = "Life Expectancy")
+
+```

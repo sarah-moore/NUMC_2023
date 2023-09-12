@@ -42,13 +42,12 @@ africa_map <- ne_countries(continent = "Africa", returnclass = "sf")
 ```
 
 # Step 1
- 
+
 Here, write some text about what the dataset is. Consider adding some text that is **bold** and maybe some *italics*:
 
 *Insert text here.*
 
-
-In the following code chunk, identify the argument that specifies the output size of the figure. Change this to your preferred specification. 
+In the following code chunk, identify the argument that specifies the output size of the figure. Change this to your preferred specification.
 
 ```{r, echo = F, eval = T, out.width="60%"}
 # You can't see this code chunk in the knitted pdf, but the code results show. Can you see the specifications that would entail this specification? 
@@ -120,11 +119,9 @@ africa_map %>%
 
 ```
 
-**Knit** the document. 
+**Knit** the document.
 
-
-# Step 2 
-
+# Step 2
 
 ```{r, echo = F, eval = T}
 
@@ -167,24 +164,24 @@ afri_sent_summary %>%
              lty = 2, color = "red")
 ```
 
-Write here about what you think we have done so far with bullet points. 
+Write here about what you think we have done so far with bullet points.
 
-- To do so: 
+-   To do so:
 
-  - You can provide information like this. 
-  
-  - And make sure that you double skip between lines. 
-  
-      - And the lists nested with tabs.
-      
-1) Or you can make a numbered list. 
+    -   You can provide information like this.
 
-2) As an addition, write here a formula or equation you remember this week: 
+    -   And make sure that you double skip between lines.
 
-  - To write in math notation in Markdown, you put your math "stuff" in betwen dollar signs. If you want it in the text, you just write it inline: $x + 2 = 44$. If you want it to be a line of its own you put it in double dollar signs, like this:
-  
+        -   And the lists nested with tabs.
+
+1)  Or you can make a numbered list.
+
+2)  As an addition, write here a formula or equation you remember this week:
+
+-   To write in math notation in Markdown, you put your math "stuff" in betwen dollar signs. If you want it in the text, you just write it inline: $x + 2 = 44$. If you want it to be a line of its own you put it in double dollar signs, like this:
+
 $$b = (X^TX)^{-1}X^TY$$
 
-### Add a sub-subhead here that tells us what the formula that you provided is about. 
+### Add a sub-subhead here that tells us what the formula that you provided is about.
 
 ## KNIT AGAIN!!

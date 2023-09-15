@@ -15,8 +15,8 @@ In this repository there is a page for each day of work, resources both related 
 | 5   |  [Linear Algebra](/AM_Slides/day5_AM.pdf) | [Exploratory Data Viz](/PM_Slides/Ggplot_document.Rmd) | | Boyd and Vandenberge, [Skim Sections 1 and 2](https://web.stanford.edu/~boyd/vmls/vmls.pdf) |
 | 6   |  [Probability I](/AM_Slides/day6_AM.pdf) | [Project Management + Version Control in R](/PM_Slides/code/day6_PM.Rmd) |  |   |
 | 7   | [Probability II](/AM_Slides/day7_AM.pdf)   |  [Applied Data Project](/PM_Slides/day7_PM.pdf)  |  |  |
-| 8   | **Survey of Perspectives in Quant. Social Science** |  |  | |
-| 9   |     **Review**     |  |  |  |
+| 8   | **Recap** |  |  | |
+| 9   |     **Drop-In Review**     |  |  |  |
 
 [PM Lab Activities](PM_Slides/)
 

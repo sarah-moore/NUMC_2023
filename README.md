@@ -13,8 +13,8 @@ In this repository there is a page for each day of work, resources both related 
 | 3   |  [Calculus I: Derivatives](/AM_Slides/day3_AM.pdf)|[`tidyverse` II](/PM_Slides/day2and3_pm.pdf) |  Moore & Siegel, ch. 5 |
 | 4   |  [Calculus II: Integrals](/AM_Slides/day4_AM.pdf) |  Tidyverse Recap | Moore & Siegel, ch. 7 |
 | 5   |  [Linear Algebra](/AM_Slides/day5_AM.pdf) | [Exploratory Data Viz](/PM_Slides/Ggplot_document.Rmd) | Boyd and Vandenberge, [Skim Sections 1 and 2](https://web.stanford.edu/~boyd/vmls/vmls.pdf) |
-| 6   |  [Probability I](/AM_Slides/day6_AM.pdf) | [Project Management + Version Control in R](/PM_Slides/code/day6_PM.Rmd) |    |
-| 7   | [Probability II](/AM_Slides/day7_AM.pdf)   |  [Applied Data Project](/PM_Slides/day7_PM.pdf)  |    |
+| 6   |  [Probability I](/AM_Slides/day6_AM.pdf) | [Project Management + Version Control in R](/PM_Slides/code/day6_PM.Rmd) |  Moore & Siegel, ch. 9 |
+| 7   | [Probability II](/AM_Slides/day7_AM.pdf)   |  [Applied Data Project](/PM_Slides/day7_PM.pdf)  |  Moore & Siegel, ch. 10, 11  |
 | 8   | **Recap** |  |  |
 | 9   |     **Drop-In Review**     |  |   |
 

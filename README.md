@@ -7,7 +7,7 @@ This is the repository for the Math Camp for the Social Sciences at Northwestern
 In this repository there is a page for each day of work, resources both related to and unrelated to this course, and supplementary material.
 
 | Day |                              AM content                              |                         PM Content   | Readings                                 |
-|------------|:-------------------:|:-------------:|:----------:|:----------:|
+|------------|:-------------------:|:-------------:|:----------:|
 | 1   |  [Foundations of Quantitative Social Science](/AM_Slides/day1_AM.pdf) | [Intro to Base R + Other Software](/PM_Slides/day1_pm.pdf) | Moore & Siegel, ch. 2 |
 | 2   |  [Algebra and Pre-Calculus](/AM_Slides/day2_AM.pdf)| [`tidyverse` I](/PM_Slides/day2and3_pm.pdf)  |   Moore & Siegel, ch. 3, ch.4 |
 | 3   |  [Calculus I: Derivatives](/AM_Slides/day3_AM.pdf)|[`tidyverse` II](/PM_Slides/day2and3_pm.pdf) |  Moore & Siegel, ch. 5 |

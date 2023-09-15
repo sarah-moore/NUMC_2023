@@ -22,6 +22,4 @@ In this repository there is a page for each day of work, resources both related 
 
 [Supplementary Material](supplementary_material/README.md)
 
-[Grad School Resources](resources/README.md)
-
 Some of the materials here were developed based on the [Harvard Math Prefresher for Political Scientists Booklet](https://iqss.github.io/prefresher/), the [UCSD Political Science Math Camp Booklet](https://ucsdpolimathcamp.github.io/MathCamp/), as well as previous iterations of the NU Math Camp curriculum developed by Jean Clipperton.

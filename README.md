@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Northwestern University Social Science Math Camp
 
 Author: Sarah Elizabeth Moore [[website](sarah-moore.github.io); [email](mailto:sarahmoore2022@u.northwestern.edu)]
